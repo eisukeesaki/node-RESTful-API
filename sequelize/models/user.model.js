@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize) => {
+function defineUser(sequelize) {
   sequelize.define('user', {
     id: {
       allowNull: false,
@@ -15,4 +15,6 @@ module.exports = (sequelize) => {
     }
   });
 }
+
+module.exports = defineUser;
 
