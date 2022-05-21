@@ -5,7 +5,16 @@ async function getAll(req, res) {
   res.status(200).send(users);
 }
 
+async function getById(req, res) {
+  const user = await models.user.findOne({ where: { id: req.params.id }});
+  if (!user) {
+    return res.sendStatus(404);
+  }
+  res.json(user);
+}
+
 module.exports = {
-  getAll
+  getAll,
+  getById
 }
 
