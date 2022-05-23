@@ -10,7 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
-        type: Sequelize.STRING
+        allowNull: false,
+        unique: true,
+        type: Sequelize.STRING,
+        validate: {
+          notNull: true
+        }
       },
       createdAt: {
         allowNull: false,

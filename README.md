@@ -1,5 +1,8 @@
 ### tasks
 ```
+
+setup validation and constrainst in moidel
+
 OK: implement users.routes.js/getAll()
 ```
 
@@ -30,6 +33,17 @@ route handler
     serve specific web page
     respond to API requests
     
+validation
+    client side
+        form validation
+    server side
+        request body validation
+            sequelize level
+            ? route level 
+    
+?data integrity
+    table constraints
+        SQL level
 
 ```
 

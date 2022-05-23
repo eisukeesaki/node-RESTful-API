@@ -11,7 +11,10 @@ function defineUser(sequelize) {
     username: {
       allowNull: false,
       type: DataTypes.STRING,
-      unique: true
+      unique: true,
+      validate: {
+        notNull: true
+      }
     }
   });
 }
