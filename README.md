@@ -1,8 +1,16 @@
 ### tasks
 ```
-create endpoints
-    PUT /api/users
-    DELETE /api/users
+
+implement request validation
+    getAll
+    getById
+    create
+    update
+    destroy
+
+OK: create endpoints
+    OK: PUT /api/users
+    OK: DELETE /api/users
 setup validation and constrainst in moidel
 
 OK: implement users.routes.js/getAll()

@@ -8,27 +8,37 @@ async function getAll(req, res) {
 async function getById(req, res) {
   const user = await models.user.findOne({ where: { id: req.params.id }});
   if (!user) {
-    return res.sendStatus(404);
+    res.sendStatus(404);
+  } else {
+    res.json(user);
   }
-  res.json(user);
 }
 
 async function create(req, res) {
-  const created = await models.user.create(req.body);
-  res.send(created);
+  if (req.params.id) {
+    res.status(400).send("Bad request. ID should not be provided, since it is automatically determined by the database.");
+  } else {
+    await models.user.create(req.body);
+    res.status(201).end();
+  }
 }
 
 async function update(req, res) {
-  const returnValue = await models.user.update(req.body, {
-    where: { id: req.params.id }
+  await models.user.update(req.body, {
+    where: {
+      id: req.params.id
+    }
   });
-  res.end();
+  res.status(200).end();
 }
 
 async function destroy(req, res) {
-  const isDeleted = await models.user.destroy({ where: { id: req.params.id }});
-  console.log(isDeleted);
-  res.end();
+  const isDeleted = await models.user.destroy({
+    where: {
+      id: req.params.id
+    }
+  });
+  res.status(200).end();
 }
 
 module.exports = {
