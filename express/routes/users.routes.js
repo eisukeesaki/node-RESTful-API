@@ -18,9 +18,17 @@ async function create(req, res) {
   res.send(created);
 }
 
+async function update(req, res) {
+  const returnValue = await models.user.update(req.body, {
+    where: { id: req.params.id }
+  });
+  res.end();
+}
+
 module.exports = {
   getAll,
   getById,
-  create
+  create,
+  update
 }
 

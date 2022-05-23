@@ -18,6 +18,9 @@ for (const [routeName, routeController] of Object.entries(routes)) {
   if (routeController.create) {
     app.post(`/api/${routeName}`, routeController.create);
   }
+  if (routeController.update) {
+    app.put(`/api/${routeName}/:id`, routeController.update);
+  }
 }
 
 module.exports = app;
