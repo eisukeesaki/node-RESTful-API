@@ -25,10 +25,17 @@ async function update(req, res) {
   res.end();
 }
 
+async function destroy(req, res) {
+  const isDeleted = await models.user.destroy({ where: { id: req.params.id }});
+  console.log(isDeleted);
+  res.end();
+}
+
 module.exports = {
   getAll,
   getById,
   create,
-  update
+  update,
+  destroy
 }
 

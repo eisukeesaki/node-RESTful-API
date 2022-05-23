@@ -21,6 +21,9 @@ for (const [routeName, routeController] of Object.entries(routes)) {
   if (routeController.update) {
     app.put(`/api/${routeName}/:id`, routeController.update);
   }
+  if (routeController.destroy) {
+    app.delete(`/api/${routeName}/:id`, routeController.destroy);
+  }
 }
 
 module.exports = app;
